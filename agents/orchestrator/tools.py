@@ -68,7 +68,7 @@ def move_file(src_rel: str, dest_rel: str, config: RunnableConfig) -> str:
     # Auto-create parent dirs on move (per your call) — the agent doesn't
     # need a separate make_dir round-trip for every single leaf file.
     dest_path.parent.mkdir(parents=True, exist_ok=True)
-    shutil.copy(str(src_path), str(dest_path))
+    shutil.move(str(src_path), str(dest_path))
 
     # Logging happens here, deterministically, not via the LLM narrating
     # what it did — the log file is only as trustworthy as the code
